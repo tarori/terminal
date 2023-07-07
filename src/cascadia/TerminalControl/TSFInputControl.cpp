@@ -99,10 +99,11 @@ namespace winrt::Microsoft::Terminal::Control::implementation
     {
         if (!_inputBuffer.empty())
         {
+            int32_t length_prev = static_cast<int32_t>(_inputBuffer.length());
             _inputBuffer.clear();
             _selection = {};
             _activeTextStart = 0;
-            _editContext.NotifyTextChanged({ 0, INT32_MAX }, 0, _selection);
+            _editContext.NotifyTextChanged({ 0, length_prev }, 0, _selection);
             TextBlock().Text({});
         }
     }
