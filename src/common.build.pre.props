@@ -193,8 +193,11 @@
   <ItemDefinitionGroup Condition="'$(Configuration)'=='Release' Or '$(Configuration)'=='AuditMode' Or '$(Configuration)'=='Fuzzing'">
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
+      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeTypeInfo>false</RuntimeTypeInfo>
       <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
