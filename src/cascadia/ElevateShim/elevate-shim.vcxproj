@@ -8,26 +8,22 @@
     <TargetName>elevate-shim</TargetName>
     <ConfigurationType>Application</ConfigurationType>
     <VersionInfoFileDescription>Windows Terminal Administrator Launch Helper</VersionInfoFileDescription>
+    <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
-
   <Import Project="..\..\..\common.openconsole.props" Condition="'$(OpenConsoleDir)'==''" />
   <Import Project="$(OpenConsoleDir)src\common.build.pre.props" />
   <Import Project="$(OpenConsoleDir)src\common.nugetversions.props" />
-
   <!-- Source Files -->
   <ItemGroup>
     <ClCompile Include="elevate-shim.cpp">
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
   </ItemGroup>
-
   <ItemGroup>
     <ResourceCompile Include="elevate-shim.rc" />
   </ItemGroup>
-
   <Import Project="$(OpenConsoleDir)src\common.build.post.props" />
   <Import Project="$(OpenConsoleDir)src\common.nugetversions.targets" />
-
   <ItemDefinitionGroup>
     <Link>
       <!-- Remove all non-onecore dependencies -->

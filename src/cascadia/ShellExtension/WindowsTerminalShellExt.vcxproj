@@ -11,6 +11,7 @@
     <!-- suppress a bunch of Windows Universal properties from cppwinrt.props -->
     <OpenConsoleUniversalApp>false</OpenConsoleUniversalApp>
     <VersionInfoFileDescription>Windows Terminal Open Here Shell Extension</VersionInfoFileDescription>
+    <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <PropertyGroup Label="NuGet Dependencies">
     <TerminalCppWinrt>true</TerminalCppWinrt>
@@ -52,10 +53,8 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>
-
   <Import Project="$(OpenConsoleDir)src\cppwinrt.build.post.props" />
   <Import Project="$(OpenConsoleDir)src\common.nugetversions.targets" />
-
   <!-- Override GetPackagingOutputs to roll up our DLL.
        This is a heavily stripped version of the one in Microsoft.*.AppxPackage.targets.
   -->

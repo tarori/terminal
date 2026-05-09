@@ -62,6 +62,9 @@
   <ItemGroup>
     <None Include="console.def" />
   </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
   <PropertyGroup>
     <EmbedManifest>
     </EmbedManifest>

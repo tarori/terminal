@@ -7,6 +7,7 @@
     <ProjectName>Scratch</ProjectName>
     <TargetName>Scratch</TargetName>
     <ConfigurationType>Application</ConfigurationType>
+    <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="..\..\common.build.pre.props" />
   <ItemGroup>
@@ -21,7 +22,6 @@
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
-
   <!-- Careful reordering these. Some default props (contained in these files) are order sensitive. -->
   <Import Project="..\..\common.build.post.props" />
   <Import Project="..\..\common.build.tests.props" />
