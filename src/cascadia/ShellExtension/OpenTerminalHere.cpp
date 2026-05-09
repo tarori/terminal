@@ -55,7 +55,9 @@ try
         cmdline.reserve(256); // The WindowsTerminal.exe path is ~110 characters long
         cmdline.push_back(L'"');
         cmdline.append(modulePath.native());
-        cmdline.append(LR"(" -d )");
+        cmdline.append(LR"(" -p )");
+        QuoteAndEscapeCommandlineArg(L"Ubuntu-cd", cmdline);
+        cmdline.append(L" -d ");
         QuoteAndEscapeCommandlineArg(pszName.get(), cmdline);
 
         RETURN_IF_WIN32_BOOL_FALSE(CreateProcessW(
@@ -87,19 +89,7 @@ HRESULT OpenTerminalHere::GetToolTip(IShellItemArray* /*psiItemArray*/,
 HRESULT OpenTerminalHere::GetTitle(IShellItemArray* /*psiItemArray*/,
                                    LPWSTR* ppszName)
 {
-    // Change the string we return depending on if we're running from the dev
-    // build package or not.
-    const auto resource =
-#if defined(WT_BRANDING_RELEASE)
-        RS_(L"ShellExtension_OpenInTerminalMenuItem");
-#elif defined(WT_BRANDING_PREVIEW)
-        RS_(L"ShellExtension_OpenInTerminalMenuItem_Preview");
-#elif defined(WT_BRANDING_CANARY)
-        RS_(L"ShellExtension_OpenInTerminalMenuItem_Canary");
-#else
-        RS_(L"ShellExtension_OpenInTerminalMenuItem_Dev");
-#endif
-    return SHStrDup(resource.data(), ppszName);
+    return SHStrDupW(L"Open WSL Terminal", ppszName);
 }
 
 HRESULT OpenTerminalHere::GetState(IShellItemArray* psiItemArray,
